@@ -5,8 +5,9 @@ List Exercises
 
 
 def main():
-    numbers = get_numbers()
-    print_numbers(numbers)
+    if check_username():
+        numbers = get_numbers()
+        print_numbers(numbers)
 
 
 def get_numbers():
@@ -24,6 +25,20 @@ def print_numbers(numbers):
     print("The largest number is {}".format(max(numbers)))
     average = sum(numbers)/len(numbers)
     print("The average of the numbers is {}".format(average))
+
+
+def check_username():
+    usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface',
+                 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer',
+                 'bob']
+    print("Enter your username: ")
+    username = input(">>> ")
+    if username in usernames:
+        print("Username Accepted")
+        return True
+    else:
+        print("Username Declined")
+        return False
 
 
 main()
