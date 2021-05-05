@@ -1,8 +1,11 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.properties import StringProperty
 
 class ConvertMilesKm(App):
+    message = StringProperty()
+
     def build(self):
         Window.size = (1000, 500)
         self.title = "Convert Miles Km"
@@ -10,12 +13,22 @@ class ConvertMilesKm(App):
         return self.root
 
     def calculate(self):
-        print("Calculate")
+        miles = self.root.ids.input_number.text
+        if miles.isnumeric():
+            km = int(self.root.ids.input_number.text) * 1.6
+            self.message = str(km)
+        else:
+            miles = 0
+            self.root.ids.input_number.text = str(miles)
 
     def handle_increment(self, increment):
-        miles = int(self.root.ids.input_number.text)
-        miles = miles + increment
-        self.root.ids.input_number.text = str(miles)
+        miles = self.root.ids.input_number.text
+        if miles.isnumeric():
+            miles = int(miles) + increment
+            self.root.ids.input_number.text = str(miles)
+        else:
+            miles = 0
+            self.root.ids.input_number.text = str(miles)
 
 
 ConvertMilesKm().run()
