@@ -1,0 +1,22 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: number_input
+            text: ''
+            font_size: 48
+            multiline: False
+        BoxLayout:
+        orientation: 'vertical'
+            Button:
+                text: 'Up'
+
+            Button:
+                text: 'Down'
+    Button:
+        text: 'Convert m to km'
+        on_press: app.calculate()
+    Label:
+        id: km_output
+        text: ''
