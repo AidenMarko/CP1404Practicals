@@ -3,17 +3,18 @@ BoxLayout:
     BoxLayout:
         orientation: 'horizontal'
         TextInput:
-            id: number_input
-            text: ''
+            id: input_number
+            text: '7'
             font_size: 48
             multiline: False
         BoxLayout:
-        orientation: 'vertical'
+            orientation: 'vertical'
             Button:
                 text: 'Up'
-
+                on_press: app.up()
             Button:
                 text: 'Down'
+                on_press: app.down()
     Button:
         text: 'Convert m to km'
         on_press: app.calculate()
