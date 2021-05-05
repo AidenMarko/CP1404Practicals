@@ -4,7 +4,7 @@ from kivy.core.window import Window
 
 class ConvertMilesKm(App):
     def build(self):
-        Window.size = (200, 100)
+        Window.size = (1000, 500)
         self.title = "Convert Miles Km"
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
@@ -12,10 +12,10 @@ class ConvertMilesKm(App):
     def calculate(self):
         print("Calculate")
 
-    def up(self):
-        print("Up")
+    def handle_increment(self, increment):
+        miles = int(self.root.ids.input_number.text)
+        miles = miles + increment
+        self.root.ids.input_number.text = str(miles)
 
-    def down(self):
-        print("Down")
 
 ConvertMilesKm().run()
