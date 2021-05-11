@@ -1,0 +1,23 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: input_number
+            text: '7'
+            font_size: 48
+            multiline: False
+            on_text: app.calculate()
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Up'
+                on_press: app.handle_increment(1)
+                on_press: app.calculate()
+            Button:
+                text: 'Down'
+                on_press: app.handle_increment(-1)
+                on_press: app.calculate()
+    Label:
+        id: km_output
+        text: app.message
