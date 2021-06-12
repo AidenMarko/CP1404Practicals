@@ -74,3 +74,17 @@ doctest.testmod()
 # and one more you decide (one that is valid!)
 # test this and watch the tests fail
 # then write the body of the function so that the tests pass
+
+def format_phrase(phrase):
+    if phrase[0] == phrase[0].upper() and phrase[-1] == ".":
+        return phrase
+    new_phrase = phrase[0].upper() + phrase[1:]
+    if phrase[-1] == ".":
+        return new_phrase
+    new_phrase += "."
+    return new_phrase
+
+
+assert format_phrase("hello") == "Hello."
+assert format_phrase('it is an ex parrot.') == "It is an ex parrot."
+assert format_phrase("It is an ex parrot.") == "It is an ex parrot."
